@@ -1,3 +1,5 @@
+import { MdDashboard, MdPeople } from "react-icons/md";
+import type { IconType } from "react-icons";
 import Dashboard from "../pages/Dashboard";
 import Employees from "../pages/Employees";
 import Home from "../pages/Home";
@@ -8,6 +10,7 @@ export type AppRoute = {
   label?: string;
   requiresAdmin?: boolean;
   hideFromNav?: boolean;
+  icon?: IconType;
 };
 
 export const appRoutes: AppRoute[] = [
@@ -19,10 +22,12 @@ export const appRoutes: AppRoute[] = [
     path: "/dashboard",
     element: <Dashboard />,
     label: "Dashboard",
+    icon: MdDashboard,
   },
   {
     path: "/employees",
     element: <Employees />,
     label: "Employees",
+    icon: MdPeople,
   },
 ];
