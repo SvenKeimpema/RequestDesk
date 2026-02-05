@@ -3,6 +3,8 @@ import type { IconType } from "react-icons";
 import Dashboard from "../pages/Dashboard";
 import Employees from "../pages/Employees";
 import Home from "../pages/Home";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 export type AppRoute = {
   path: string;
@@ -29,5 +31,13 @@ export const appRoutes: AppRoute[] = [
     element: <Employees />,
     label: "Employees",
     icon: MdPeople,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
 ];
