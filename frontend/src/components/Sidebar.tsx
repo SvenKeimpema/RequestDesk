@@ -8,17 +8,24 @@ export default function SideBar({ IsAdmin }: { IsAdmin: boolean }) {
         {appRoutes
           .filter((r) => r.label)
           .filter((r) => !r.requiresAdmin || IsAdmin)
-          .map((route) => (
-            <NavLink
-              className="rounded-md px-3 py-2 text-sm font-medium text-black transition
-            hover:bg-gray-400
-            [&.active]:bg-gray-200"
-              key={route.path}
-              to={route.path}
-            >
-              {route.label}
-            </NavLink>
-          ))}
+          .map((route) => {
+            const Icon = route.icon;
+
+            return (
+              <NavLink
+                className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-black transition hover:bg-gray-400 [&.active]:bg-gray-200"
+                key={route.path}
+                to={route.path}
+              >
+                {Icon && (
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full transition in-[.active]:bg-blue-500 in-[.active_&]:text-white">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                )}
+                {route.label}
+              </NavLink>
+            );
+          })}
       </nav>
     </div>
   );
