@@ -1,12 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import { appRoutes } from "./routes/Routes";
 import { RequireAdmin } from "./routes/RequireAdmin";
+// import { AuthProvider } from "./context/AuthProvider";
 
 export default function App() {
   // TODO: we can only implement this part properly when login/register has been implemented
   const isAdmin = false;
 
   return (
+    // <AuthProvider>
     <Routes>
       {appRoutes.map((route) => {
         const element = route.requiresAdmin ? (
@@ -18,5 +20,6 @@ export default function App() {
         return <Route key={route.path} path={route.path} element={element} />;
       })}
     </Routes>
+    // </AuthProvider>
   );
 }
